@@ -1,22 +1,23 @@
-@import "header";
-@import "form";
-@import "anime";
-@import "anime_details";
-@import "comment";
-@import "star_rating";
+// Importation des fichiers SCSS pour les styles spécifiques
+@import "header";       // Styles pour l'en-tête de la page
+@import "form";         // Styles pour les formulaires
+@import "anime";        // Styles pour la section des animes
+@import "anime_details"; // Styles pour les détails des animes
+@import "comment";      // Styles pour la section des commentaires
+@import "star_rating";  // Styles pour le système de notation par étoiles
 
-
+// Styles globaux pour les éléments HTML
 html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;            // Supprime les marges par défaut
+  padding: 0;           // Supprime les espacements par défaut
+  box-sizing: border-box; // Inclut les bordures et les marges dans les dimensions totales des éléments
 }
 
-h1{
-    
-    color:darkorange;
-    text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-style: italic;
-        font-weight: 700;
+// Styles pour les éléments h1
+h1 {
+  color: darkorange;                           // Définit la couleur du texte en orange foncé
+  text-align: center;                         // Centre le texte horizontalement
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; // Définit la famille de polices
+  font-style: italic;                         // Applique un style italique au texte
+  font-weight: 700;                           // Définit le poids de la police en gras
 }

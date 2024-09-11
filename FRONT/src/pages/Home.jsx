@@ -1,11 +1,7 @@
-import { useContext } from "react";
-import { UserContext } from "../hooks/UserContextProvider";
 import homeImage from "../public/homeImage.webp";
 import "../assets/styles/home.scss";
 
 function Home() {
-  const context = useContext(UserContext);
-  console.log(context);
   return (
     <main className="main_home">
       <h1>Bienvenue sur Anime-Legend</h1>

@@ -1,61 +1,55 @@
 .main_animes {
+  padding: 20px; // Ajoute un espace intérieur de 20px autour du contenu
+  display: flex; // Utilise Flexbox pour la disposition des éléments enfants
+  flex-wrap: wrap; // Permet aux éléments de passer à la ligne suivante si nécessaire
+  gap: 20px; // Espace de 20px entre les éléments enfants
+  justify-content: center; // Centre les éléments horizontalement
+}
 
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; 
-    justify-content: center;
+.scroll-top {
+  position: fixed; // Positionne le bouton de défilement en haut
+  bottom: 20px; // Espace de 20px depuis le bas de la fenêtre
+  right: 20px; // Espace de 20px depuis le bord droit de la fenêtre
+  background-color: darkorange; // Couleur de fond orange foncé
+  color: black; // Couleur du texte en noir
+  border: none; // Pas de bordure
+  padding: 10px 15px; // Espace intérieur de 10px en haut/bas et 15px à gauche/droite
+  border-radius: 50%; // Arrondit les coins pour créer un bouton circulaire
+  cursor: pointer; // Affiche un pointeur lorsqu'on survole le bouton
+  font-size: 20px; // Taille de la police
+  display: flex; // Utilise Flexbox pour centrer le contenu
+  align-items: center; // Centre le contenu verticalement
+  justify-content: center; // Centre le contenu horizontalement
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Ombre légère autour du bouton
+  transition: background-color 0.3s ease; // Effet de transition pour le changement de couleur de fond
+}
+
+.card {
+  background-color: wheat; // Couleur de fond beige clair
+  border: 1px solid darkorange; // Bordure d'1px en orange foncé
+  border-radius: 8px; // Coins arrondis avec un rayon de 8px
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Ombre légère autour de la carte
+  padding: 16px; // Espace intérieur de 16px autour du contenu
+  width: 300px; // Largeur fixe de 300px
+  text-align: left; // Aligne le texte à gauche
+  transition: transform 0.2s ease-in-out; // Effet de transition pour la transformation
+  text-decoration: none; // Supprime la décoration du texte (utile pour les liens)
+
+  &:hover {
+      transform: scale(1.02); // Agrandit légèrement la carte au survol
   }
 
-  .scroll-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: darkorange;
-    color: black;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-  
-    
+  img {
+      width: 100%; // Largeur de l'image à 100% du conteneur
+      height: auto; // Hauteur automatique pour conserver les proportions
+      border-radius: 8px; // Coins arrondis pour l'image
+      margin-top: 10px; // Espace au-dessus de l'image
   }
-  
-  .card {
-    background-color: wheat;
-    border: 1px solid darkorange;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    width: 300px;
-    text-align:left;
-    transition: transform 0.2s ease-in-out;
-    text-decoration: none;
-  
-    &:hover  {
-      transform: scale(1.02);
-    }
 
-  
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-  
-    p {
-      
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      font-weight: 600;
-      color:black ; 
-      margin: 10px 0;
-    }
+  p {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; // Police de caractères utilisée
+      font-weight: 600; // Poids de la police en gras
+      color: black; // Couleur du texte en noir
+      margin: 10px 0; // Espace vertical de 10px au-dessus et en dessous du paragraphe
   }
-  
+}

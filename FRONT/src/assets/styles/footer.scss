@@ -1,50 +1,46 @@
-
 footer {
-  background-color: black; 
-  color: darkorange; 
-  padding: 20px;
-  text-align: center;
+  background-color: black; // Couleur de fond noire
+  color: darkorange; // Couleur du texte en orange foncé
+  padding: 20px; // Espace intérieur autour du contenu
+  text-align: center; // Centre le texte horizontalement
 
   .footer-content {
-    margin-bottom: 20px;
+    margin-bottom: 20px; // Espace en dessous du contenu du footer
 
     h2 {
-      margin: 0;
-      font-size: 24px;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-style: italic;
-        font-weight: 700;
-      
+      margin: 0; // Supprime la marge par défaut autour du titre
+      font-size: 24px; // Taille de la police du titre
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; // Police de caractères
+      font-style: italic; // Style de police en italique
+      font-weight: 700; // Poids de la police en gras
     }
 
     p {
-      margin: 10px 0;
-      font-size: 14px;
-      
+      margin: 10px 0; // Espace vertical autour du paragraphe
+      font-size: 14px; // Taille de la police du paragraphe
     }
-
   }
 
   .footer-bottom {
-    font-size: 12px;
+    font-size: 12px; // Taille de la police plus petite pour le bas du footer
   }
 
   .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px; 
-    padding: 20px;
+    display: flex; // Utilise Flexbox pour les liens sociaux
+    justify-content: center; // Centre les éléments horizontalement
+    gap: 15px; // Espace entre les liens sociaux
+    padding: 20px; // Espace intérieur autour des liens sociaux
 
     a {
-      color: #fff; 
-      transition: color 0.3s;
+      color: #fff; // Couleur du texte des liens en blanc
+      transition: color 0.3s; // Transition pour le changement de couleur des liens
 
       &:hover {
-        color:darkorange; 
+        color: darkorange; // Change la couleur au survol en orange foncé
       }
 
       svg {
-        vertical-align: middle; 
+        vertical-align: middle; // Aligne verticalement les icônes SVG
       }
     }
   }

@@ -1,54 +1,57 @@
 import Query from "../model/Query.js";
 
 class Anime {
-// Récupérer tous les animes via le controllers animes
-    static async getAll () {
 
+    // Méthode pour récupérer tous les animes via le controller animes
+    static async getAll() {
+        // Exécute une requête SQL pour sélectionner tous les animes avec leurs auteurs associés
         const query = `SELECT animes.id, title, description, genre, release_date, author_id, img_src, name AS author_name
         FROM animes JOIN authors ON authors.id = animes.author_id`;
-        const response = await Query.run(query);
-        return response
+        const response = await Query.run(query); // Exécute la requête et retourne la réponse
+        return response;
     }
 
-// Récupérer un anime spécifique par ID via le controllers animes
-    static async getOneById (id) {
-        
+    // Méthode pour récupérer un anime spécifique par ID via le controller animes
+    static async getOneById(id) {
+        // Exécute une requête SQL pour sélectionner un anime spécifique et son auteur en fonction de l'ID fourni
         const anime = await Query.runWithParams(
             `SELECT bio, birthdate, animes.id, title, description, genre, release_date, author_id, img_src, name AS author_name 
             FROM animes 
             JOIN authors 
             ON authors.id = animes.author_id WHERE animes.id = ?`,
-            [id]
+            [id] // Le paramètre 'id' est passé dans la requête pour filtrer par ID
         );
-        return anime
+        return anime;
     }
     
-// Ajouter un nouvel anime via le controlers animes
-    static async add (data) {
-
+    // Méthode pour ajouter un nouvel anime via le controller animes
+    static async add(data) {
+        // Exécute une requête SQL pour insérer un nouvel anime avec les données fournies
         const response = await Query.runWithParams(
             "INSERT INTO animes (title, description, genre, release_date, author_id, img_src) VALUES (?, ?, ?, ?, ?, ?)",
-            data
+            data // Les données à insérer sont passées sous forme de tableau
         );
-        return response
+        return response;
     }
-// Mettre à jour un anime spécifique par ID via controllers animes
-    static async update (data) {
 
+    // Méthode pour mettre à jour un anime spécifique par ID via le controller animes
+    static async update(data) {
+        // Exécute une requête SQL pour mettre à jour un anime existant en fonction de son ID
         const response = await Query.runWithParams(
             "UPDATE animes SET title = ?, description = ?, genre = ?, release_date = ?, author_id = ? WHERE id = ?",
-            data
+            data // Les nouvelles valeurs et l'ID de l'anime sont passés sous forme de tableau
         );
-        return response
+        return response;
     }
-// Supprimer un anime spécifique par ID via controllers animes
-    static async remove (id) {
 
+    // Méthode pour supprimer un anime spécifique par ID via le controller animes
+    static async remove(id) {
+        // Exécute une requête SQL pour supprimer un anime en fonction de son ID
         const response = await Query.runWithParams(
             "DELETE FROM animes WHERE id = ?",
-            [id]
+            [id] // L'ID de l'anime à supprimer est passé en paramètre
         );
-        return response
+        return response;
     }
 };
 

@@ -1,34 +1,27 @@
-import { Router } from "express";
-import { getAll, add, getOneById, update, remove } from "../controllers/animes.js";
-import  adminRequired  from "../middlewares/adminRequired.js";
+import { Router } from "express"; 
+import { getAll, add, getOneById, update, remove } from "../controllers/animes.js"; 
+import adminRequired from "../middlewares/adminRequired.js"; 
 
-const router = Router();
+const router = Router(); // Crée une nouvelle instance du routeur Express
 
-// Route pour obtenir tous les animes
-// http://localhost:9000/api/v1/animes
-
+// Route pour récupérer tous les animes
+// Méthode HTTP GET, aucune restriction d'accès
 router.get("/", getAll); 
 
-// Route pour obtenir un anime spécifique par ID
-// http://localhost:9000/api/v1/animes/31  31 = id de Dbz
-
+// Route pour récupérer un anime spécifique par ID
+// Méthode HTTP GET, aucune restriction d'accès
 router.get("/:id", getOneById); 
 
-// Route pour ajouter un anime
-// http://localhost:9000/api/v1/animes
-
-router.post("/",adminRequired,  add); // A vérifier !
+// Route pour ajouter un nouvel anime
+// Méthode HTTP POST, nécessite d'être admin (middleware adminRequired)
+router.post("/", adminRequired, add); 
 
 // Route pour mettre à jour un anime spécifique par ID
-// http://localhost:9000/api/v1/animes/31
-
-router.patch("/:id",adminRequired,  update);
+// Méthode HTTP PATCH, nécessite d'être admin (middleware adminRequired)
+router.patch("/:id", adminRequired, update);
 
 // Route pour supprimer un anime spécifique par ID
-// http://localhost:9000/api/v1/animes/:id
+// Méthode HTTP DELETE, nécessite d'être admin (middleware adminRequired)
+router.delete("/:id", adminRequired, remove);
 
-router.delete("/:id",adminRequired,  remove);
-
-export default router;
-
-
+export default router; // Exporte le routeur pour l'utiliser dans d'autres parties de l'application

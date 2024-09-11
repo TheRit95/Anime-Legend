@@ -1,29 +1,38 @@
 .main_animes_details {
-
-    display:flex;
-    flex-direction: column;
-    gap: 40px;
-    
+    display: flex; // Utilisation de Flexbox pour la disposition des éléments
+    flex-direction: column; // Dispose les éléments en colonne par défaut
+    gap: 40px; // Espace entre les éléments enfants
 
     img {
-        max-width: 400px;
-        object-fit: cover;
-
+        max-width: 400px; // Limite la largeur maximale des images
+        object-fit: cover; // Redimensionne l'image pour couvrir le conteneur sans déformer l'image
     }
-     .div_details {
-        line-height: 30px;
-        padding-right: 10px;
-     }
 
     .div_details {
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+        line-height: 30px; // Hauteur de ligne pour le texte
+        padding-right: 10px; // Espace à droite du texte
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; // Police de caractères utilisée
     }
 }
 
-@media screen and (min-width:800px){
-    .main_animes_details{
-        flex-direction: row;
-        
+// Styles pour les écrans de largeur minimale de 800px
+@media screen and (min-width: 800px) {
+    .main_animes_details {
+        flex-direction: row; // Dispose les éléments en ligne lorsque la largeur de l'écran est suffisante
+    }
+}
+
+// Styles pour les écrans de largeur minimale de 600px
+@media screen and (min-width: 600px) {
+    .main_animes_details {
+        flex-direction: row; // Dispose les éléments en ligne lorsque la largeur de l'écran est suffisante
+    }
+
+    img {
+        max-width: 300px; // Réduit la largeur maximale des images pour les écrans plus petits
+    }
+
+    .div_details {
+        padding-right: 20px; // Augmente l'espace à droite du texte pour les écrans plus petits
     }
 }

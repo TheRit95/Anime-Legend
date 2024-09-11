@@ -21,7 +21,6 @@ export default function AnimeDetails() {
       .then((data) => setAnime(data))
       .catch((err) => console.log(err));
   }, [id]);
-  console.log(anime);
 
   return (
     <main className="main_animes_details">
@@ -52,13 +51,7 @@ export default function AnimeDetails() {
         </p>
       </div>
 
-      {/* <div className="rating-and-comments">
-        <StarRating rating={rating} setRating={setRating} />{" "}
-        
-        <Comment animeId={id} />
-      </div> */}
-
-      <Comment />
+      <Comment animeId={id} />
     </main>
   );
 }

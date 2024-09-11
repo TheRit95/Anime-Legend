@@ -6,10 +6,13 @@ import Register from "./pages/register";
 import Anime from "./pages/Anime";
 import Footer from "./component/Footer";
 import AnimeDetails from "./pages/AnimeDetails";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
+      <Toaster position="bottom-right" />
+
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

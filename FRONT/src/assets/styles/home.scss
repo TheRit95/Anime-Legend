@@ -1,23 +1,20 @@
 main {
-    padding: 20px;
-    
-    .home-image {
-      margin-top: 20px; 
-      text-align: center;
-     
-      img {
-        
-        max-width: 100%; 
-        height: auto; 
-        display: inline-block;
-      }
+  padding: 20px; // Espace intérieur autour du contenu principal
+
+  .home-image {
+    margin-top: 20px; // Espace au-dessus de l'image
+    text-align: center; // Centre le contenu de cette section horizontalement
+
+    img {
+      max-width: 100%; // Limite la largeur de l'image à 100% de son conteneur
+      height: auto; // Conserve le ratio hauteur/largeur de l'image
+      display: inline-block; // Affiche l'image en tant qu'élément en ligne avec bloc
     }
-};
+  }
+}
 
 .main_home p {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-weight: 700;
-  text-align: center;
-
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; // Police de caractères spécifique
+  font-weight: 700; // Poids de la police en gras
+  text-align: center; // Centre le texte horizontalement
 }
-  
