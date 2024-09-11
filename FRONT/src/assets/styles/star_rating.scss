@@ -1,0 +1,27 @@
+.star-rating {
+  display: flex; // Aligne les étoiles en ligne
+  gap: 0.5rem; // Espacement entre les étoiles
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 2rem; // Taille des étoiles
+    color: #ddd; // Couleur par défaut (étoiles non sélectionnées)
+    transition: color 0.2s;
+    
+
+    &.on {
+      color: darkorange; // Couleur des étoiles sélectionnées
+    }
+
+    &.off:hover {
+      color: darkorange; // Couleur des étoiles au survol
+    }
+  }
+
+  .star {
+    pointer-events: none; // Empêche les clics directement sur les étoiles
+  }
+}

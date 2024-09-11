@@ -1,0 +1,29 @@
+.main_animes_details {
+
+    display:flex;
+    flex-direction: column;
+    gap: 40px;
+    
+
+    img {
+        max-width: 400px;
+        object-fit: cover;
+
+    }
+     .div_details {
+        line-height: 30px;
+        padding-right: 10px;
+     }
+
+    .div_details {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    }
+}
+
+@media screen and (min-width:800px){
+    .main_animes_details{
+        flex-direction: row;
+        
+    }
+}

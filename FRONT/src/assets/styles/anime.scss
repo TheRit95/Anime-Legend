@@ -1,0 +1,61 @@
+.main_animes {
+
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center;
+  }
+
+  .scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: darkorange;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  
+    
+  }
+  
+  .card {
+    background-color: wheat;
+    border: 1px solid darkorange;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    width: 300px;
+    text-align:left;
+    transition: transform 0.2s ease-in-out;
+    text-decoration: none;
+  
+    &:hover  {
+      transform: scale(1.02);
+    }
+
+  
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  
+    p {
+      
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      color:black ; 
+      margin: 10px 0;
+    }
+  }
+  

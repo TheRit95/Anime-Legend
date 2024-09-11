@@ -1,0 +1,22 @@
+@import "header";
+@import "form";
+@import "anime";
+@import "anime_details";
+@import "comment";
+@import "star_rating";
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    
+    color:darkorange;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-style: italic;
+        font-weight: 700;
+}

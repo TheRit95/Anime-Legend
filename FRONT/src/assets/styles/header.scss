@@ -1,0 +1,73 @@
+header{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 0 20px;
+
+    .BurgerIcon {
+        display: block;
+        color: darkorange;
+        
+    }
+
+    nav a {
+        color: darkorange;
+        text-decoration: none;
+        font-size: 20px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        padding: 10px; 
+
+        &:hover {
+            color: black; 
+            background-color: darkorange; 
+            border-radius: 5px;
+            
+          }
+
+    }
+
+    h1 {
+        color: darkorange;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-style: italic;
+        font-weight: 700;
+
+    }
+    
+    nav{
+        display: none;
+        justify-content: center;
+        gap : 30px;
+        padding: 30px;
+
+    }
+}
+
+.BurgerMenu {
+    position: fixed;
+    top: 60px; 
+    left:0px;
+    right: 0px;
+    background-color: black;
+    z-index: 500;
+
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    header{
+        .BurgerIcon {
+            display: none;
+        }
+        nav {
+            display: flex;
+        }
+    }
+}
