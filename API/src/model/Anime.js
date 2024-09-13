@@ -5,9 +5,9 @@ class Anime {
     // Méthode pour récupérer tous les animes via le controller animes
     static async getAll() {
         // Exécute une requête SQL pour sélectionner tous les animes avec leurs auteurs associés
-        const query = `SELECT animes.id, title, description, genre, release_date, author_id, img_src, name AS author_name
-        FROM animes JOIN authors ON authors.id = animes.author_id`;
-        const response = await Query.run(query); // Exécute la requête et retourne la réponse
+        
+        const response = await Query.run(`SELECT animes.id, title, description, genre, release_date, author_id, img_src, name AS author_name
+        FROM animes JOIN authors ON authors.id = animes.author_id`); // Exécute la requête et retourne la réponse
         return response;
     }
 

@@ -1,10 +1,11 @@
 import { Router } from "express"; // Importation du module Router d'Express
 
 // Importation des différents routeurs pour les différentes parties de l'API
-import animes_router from "./animes.routes.js"; // Routeur pour les opérations liées aux animes
-import auth_router from "./auth.routes.js"; // Routeur pour les opérations liées à l'authentification
-import author_router from "./author.routes.js"; // Routeur pour les opérations liées aux auteurs
-import comment_router from "./comment.routes.js"; // Routeur pour les opérations liées aux commentaires
+import animes_router from "./animes.routes.js"; 
+import auth_router from "./auth.routes.js"; 
+import author_router from "./author.routes.js"; 
+import comment_router from "./comment.routes.js"; 
+import admin_router from "./admin.routes.js";
 
 const router = Router(); // Création d'une nouvelle instance du routeur Express
 const BASE_API = "/api/v1"; // Définition de la base de l'URL pour l'API
@@ -15,6 +16,8 @@ const BASE_API = "/api/v1"; // Définition de la base de l'URL pour l'API
 router.get("/", (req, res) => {
     res.json({msg: "connected to the API !"});
 });
+
+router.use(`${BASE_API}/admin`, admin_router);
 
 // Routeur pour les opérations liées à l'authentification
 // Toutes les routes définies dans auth_router seront accessibles sous /api/v1/auth

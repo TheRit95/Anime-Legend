@@ -33,25 +33,22 @@ export default function Header() {
 
   return (
     <header>
-      <h1>Anime-Legend</h1> {/* Titre de l'en-tête */}
+      <h1>Anime-Legend</h1>
       <BurgerIcon className="BurgerIcon" onClick={handleBurger} />{" "}
-      {/* Icône du menu burger */}
-      {/* Menu burger conditionnellement affiché */}
       {isOpenBurger && <BurgerMenu setIsOpenBurger={setIsOpenBurger} />}
       <nav>
-        <Link to="/">Accueil</Link> {/* Lien vers la page d'accueil */}
-        <Link to="/anime">Anime</Link> {/* Lien vers la page Anime */}
-        {!user?.email ? ( // Vérifie si l'utilisateur est connecté
+        {user?.isAdmin && <Link to="/admin">Admin</Link>}
+
+        <Link to="/">Accueil</Link>
+        <Link to="/anime">Anime</Link>
+        {!user?.email ? (
           <>
             <Link to="/login">Connexion</Link>{" "}
-            {/* Lien vers la page de connexion */}
             <Link to="/register">Inscription</Link>{" "}
-            {/* Lien vers la page d'inscription */}
           </>
         ) : (
           <Link to="" onClick={handleLogout}>
             {" "}
-            {/* Lien pour la déconnexion */}
             Déconnexion
           </Link>
         )}

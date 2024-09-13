@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../hooks/UserContextProvider";
+import toast from "react-hot-toast";
 
 export default function FormLogin() {
   // État pour gérer les données du formulaire
@@ -10,9 +11,6 @@ export default function FormLogin() {
 
   // Accès au contexte utilisateur
   const context = useContext(UserContext);
-
-  // État pour gérer les messages d'erreur
-  const [erreurMessage, setErreurMessage] = useState("");
 
   // Fonction appelée lors de la soumission du formulaire
   const handleSubmit = (event) => {
@@ -34,7 +32,7 @@ export default function FormLogin() {
         context.setUser(data.user); // Met à jour le contexte avec les informations de l'utilisateur
         window.location.href = "/"; // Redirige l'utilisateur vers la page d'accueil
       })
-      .catch((err) => setErreurMessage(err.message)); // Affiche les messages d'erreur
+      .catch(() => toast.error("Erreur de connexion")); // Affiche les messages d'erreur
   };
 
   // Fonction pour gérer les changements dans les champs du formulaire
@@ -70,7 +68,6 @@ export default function FormLogin() {
 
         <input type="submit" value="Se connecter" />
       </form>
-      <p>{erreurMessage}</p> {/* Affiche le message d'erreur, s'il y en a */}
     </>
   );
 }

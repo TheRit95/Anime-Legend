@@ -25,7 +25,7 @@ const add = async (req, res) => {
         const response = await Anime.add([title, description, genre, release_date, author_id]);
 
         // Réponse de succès avec le titre de l'anime et l'ID généré par la base de données
-        res.json({ msg: `Anime '${title}' bien ajouté avec l'id ${response.insertId}` });
+        res.json({ msg: `Anime bien ajouté` });
     } catch (error) {
         // En cas d'erreur, envoie un message d'erreur et le code 500 (erreur serveur)
         res.status(500).json({ msg: "Erreur de serveur", error: error.message });
@@ -67,7 +67,7 @@ const update = async (req, res) => {
 
         if (response.affectedRows > 0) {
             // Si l'anime est trouvé et mis à jour, renvoie un message de succès
-            res.json({ msg: `Anime avec l'id ${id} bien mis à jour` });
+            res.json({ msg: `Anime bien mis à jour` });
         } else {
             // Si l'anime n'est pas trouvé, renvoie un code 404 avec un message
             res.status(404).json({ msg: "Anime non trouvé" });
@@ -89,7 +89,7 @@ const remove = async (req, res) => {
 
         if (response.affectedRows > 0) {
             // Si l'anime est trouvé et supprimé, renvoie un message de succès
-            res.json({ msg: `Anime avec l'id ${id} bien supprimé` });
+            res.json({ msg: `Anime bien supprimé` });
         } else {
             // Si l'anime n'est pas trouvé, renvoie un code 404 avec un message
             res.status(404).json({ msg: "Anime non trouvé" });

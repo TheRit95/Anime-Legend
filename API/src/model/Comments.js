@@ -16,12 +16,12 @@ class Comments {
         // Requête SQL pour récupérer un commentaire spécifique et l'utilisateur associé, basé sur l'ID de l'anime
         const query = `
             SELECT
-                comments.id, comments.note, comments.comment, comments.statut,
+                comments.id, comments.note, comments.comment, comments.statut, comments.is_report,
                 users.username
             FROM comments
             INNER JOIN users ON users.id = comments.users_id
             INNER JOIN animes ON animes.id = comments.animes_id
-            WHERE animes.id = ?
+            WHERE animes.id = ? AND is_report = 0
         `;
         // Exécute la requête avec l'ID de l'anime passé en paramètre
         const response = await Query.runWithParams(query, [id]);
@@ -29,13 +29,17 @@ class Comments {
     }
 
     // Méthode pour mettre à jour un commentaire spécifique par ID via le controller comments
-    static async updateComment(data) {
-        // Requête SQL pour mettre à jour un commentaire existant en fonction de son ID
+    static async reportComment(id) {
         const response = await Query.runWithParams(
-            "UPDATE comments SET note = ?, comment = ?, statut = ?, users_id = ?, animes_id = ? WHERE id = ?",
-            data // Les nouvelles valeurs du commentaire et l'ID à mettre à jour sont passés sous forme de tableau
-        );
-        return response; // Retourne la réponse de la mise à jour
+            `UPDATE comments SET is_report = 1
+            WHERE id = ? `, 
+            [id]
+            
+        )
+        return response;
+    
+        // Requête SQL pour mettre à jour un commentaire existant en fonction de son ID
+        
     }
 
     // Méthode pour supprimer un commentaire spécifique par ID via le controller comments

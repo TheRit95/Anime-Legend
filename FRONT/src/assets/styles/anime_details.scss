@@ -4,6 +4,7 @@
     gap: 40px; // Espace entre les éléments enfants
 
     img {
+        
         max-width: 400px; // Limite la largeur maximale des images
         object-fit: cover; // Redimensionne l'image pour couvrir le conteneur sans déformer l'image
     }

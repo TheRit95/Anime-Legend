@@ -19,7 +19,7 @@ const addComment = async (req, res) => {
         ]);
 
         // Renvoie un message de succès avec l'ID du nouveau commentaire
-        res.json({ msg: `Commentaire bien ajouté avec l'id ${response.insertId}` });
+        res.json({ msg: `Commentaire bien ajouté` });
     } catch (error) {
         // En cas d'erreur, affiche l'erreur dans la console et renvoie une réponse avec le code 500 et un message d'erreur
         console.log(error);
@@ -37,12 +37,9 @@ const getCommentById = async (req, res) => {
         const response = await Comments.getCommentById(idAnime);
 
         // Si des commentaires sont trouvés, les renvoie en réponse
-        if (response.length > 0) {
+        
             res.json(response);
-        } else {
-            // Si aucun commentaire n'est trouvé, renvoie une réponse avec le code 404
-            res.status(404).json({ msg: "Commentaire non trouvé" });
-        }
+       
     } catch (error) {
         // En cas d'erreur, renvoie une réponse avec le code 500 et un message d'erreur
         res.status(500).json({ msg: "Erreur de serveur", error: error.message });
@@ -50,35 +47,14 @@ const getCommentById = async (req, res) => {
 };
 
 // Fonction pour mettre à jour un commentaire spécifique par ID
-const updateComment = async (req, res) => {
+const reportComment = async (req, res) => {
     // Extraction de l'ID du commentaire à partir des paramètres de la requête
     const { id } = req.params;
+    const response = await Comments.reportComment(id)
+    return res.json(response)
     // Extraction des données du corps de la requête
-    const { note, comment, statut, user_id, anime_id } = req.body;
-
-    try {
-        // Mise à jour d'un commentaire en utilisant la méthode updateComment()
-        // Les informations à mettre à jour incluent la note, le commentaire, le statut, l'ID de l'utilisateur et l'ID de l'anime
-        const response = await Comments.updateComment([
-            note,
-            comment,
-            statut,
-            user_id,
-            anime_id,
-            id, // ID du commentaire à mettre à jour
-        ]);
-
-        // Si la mise à jour est réussie (nombre de lignes affectées > 0), renvoie un message de succès
-        if (response.affectedRows > 0) {
-            res.json({ msg: `Commentaire avec l'id ${id} bien mis à jour` });
-        } else {
-            // Si aucun commentaire n'est trouvé, renvoie une réponse avec le code 404
-            res.status(404).json({ msg: "Commentaire non trouvé" });
-        }
-    } catch (error) {
-        // En cas d'erreur, renvoie une réponse avec le code 500 et un message d'erreur
-        res.status(500).json({ msg: "Erreur de serveur", error: error.message });
-    }
+    
+    
 };
 
 // Fonction pour supprimer un commentaire spécifique par ID
@@ -92,7 +68,7 @@ const removeComment = async (req, res) => {
 
         // Si la suppression est réussie (nombre de lignes affectées > 0), renvoie un message de succès
         if (response.affectedRows > 0) {
-            res.json({ msg: `Commentaire avec l'id ${id} bien supprimé` });
+            res.json({ msg: `Commentaire bien supprimé` });
         } else {
             // Si aucun commentaire n'est trouvé, renvoie une réponse avec le code 404
             res.status(404).json({ msg: "Commentaire non trouvé" });
@@ -104,4 +80,4 @@ const removeComment = async (req, res) => {
 };
 
 // Export des fonctions pour les utiliser dans d'autres parties de l'application
-export { addComment, getCommentById, updateComment, removeComment };
+export { addComment, getCommentById, reportComment, removeComment };

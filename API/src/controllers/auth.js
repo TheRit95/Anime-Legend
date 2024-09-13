@@ -25,6 +25,7 @@ const register = async (req, res) => {
         // Répond avec un message de succès et les informations de l'utilisateur
         res.status(201).json({ message: "Inscription réussie", user:req.session.user});
     } catch (error) {
+        console.log(error);
 
         // renvoie une erreur 500 en cas de problème serveur
         res.status(500).json({ message: "Erreur de serveur", error: error.message });

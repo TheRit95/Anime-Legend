@@ -4,8 +4,8 @@ import toast from "react-hot-toast";
 
 // eslint-disable-next-line react/prop-types
 export default function Comment({ animeId }) {
-  const [comments, setComments] = useState([]); // État pour stocker les commentaires
   const user = useContext(UserContext); // Contexte utilisateur pour vérifier l'authentification
+  const [comments, setComments] = useState([]); // État pour stocker les commentaires
   const [commentText, setCommentText] = useState(""); // État pour stocker le texte du commentaire
   const [rating, setRating] = useState(1); // État pour stocker la note (par défaut 1)
 
@@ -74,6 +74,32 @@ export default function Comment({ animeId }) {
       .catch(() => toast.error("Erreur lors de l'ajout du commentaire")); // Affiche un message d'erreur
   };
 
+  const handleReport = (commentId) => {
+    fetch(`${import.meta.env.VITE_URL_BACKEND}/api/v1/comments/${commentId}`, {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+      },
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Erreur serveur");
+        return response.json();
+      })
+      .then((data) => {
+        // Gestion de la réponse réussie
+        console.log("Commentaire signalé avec succès", data);
+        toast.success("Le commentaire a été signalé.");
+        setComments((value) => value.filter((item) => item.id !== commentId));
+      })
+
+      .catch((error) => {
+        console.error("Erreur lors du signalement du commentaire :", error);
+        toast.error(
+          "Une erreur s'est produite lors du signalement. Veuillez réessayer plus tard."
+        );
+      });
+  };
   return (
     <div className="comment-section">
       <h3>Commentaires</h3>
@@ -134,6 +160,7 @@ export default function Comment({ animeId }) {
               {new Array(5 - comment.note).fill("☆").join("")}
             </div>
             <p>{comment.comment}</p>
+            <button onClick={() => handleReport(comment.id)}>Signaler</button>
           </li>
         ))}
       </ul>
