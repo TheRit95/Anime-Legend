@@ -1,6 +1,7 @@
 import { Router } from "express"; 
-import { getAll, add, getOneById, update, remove } from "../controllers/animes.js"; 
 import adminRequired from "../middlewares/adminRequired.js"; 
+import { getAll, add, getOneById, update, remove } from "../controllers/animes.js"; 
+
 
 const router = Router();
 

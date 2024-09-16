@@ -9,17 +9,6 @@ const getAll = async (_req, res) => {
     }
 };
 
-const add = async (req, res) => {
-    const { title, description, genre, release_date, author_id } = req.body;
-
-    try {
-        const response = await Anime.add([title, description, genre, release_date, author_id]);
-        res.json({ msg: `Anime bien ajouté` });
-    } catch (error) {
-        res.status(500).json({ msg: "Erreur de serveur", error: error.message });
-    }
-};
-
 const getOneById = async (req, res) => {
     const { id } = req.params;
 
@@ -31,6 +20,17 @@ const getOneById = async (req, res) => {
         } else {
             res.status(404).json({ msg: "Anime non trouvé" });
         }
+    } catch (error) {
+        res.status(500).json({ msg: "Erreur de serveur", error: error.message });
+    }
+};
+
+const add = async (req, res) => {
+    const { title, description, genre, release_date, author_id } = req.body;
+
+    try {
+        const response = await Anime.add([title, description, genre, release_date, author_id]);
+        res.json({ msg: `Anime bien ajouté` });
     } catch (error) {
         res.status(500).json({ msg: "Erreur de serveur", error: error.message });
     }

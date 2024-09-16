@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { checkAuth, register, login, logout } from "../controllers/auth.js";
 
+
 const router = Router();
 
 router.get("/", checkAuth); 

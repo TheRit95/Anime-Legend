@@ -10,7 +10,7 @@ class Anime {
 
     static async getOneById(id) {
         const anime = await Query.runWithParams(
-            `SELECT bio, birthdate, animes.id, title, description, genre, release_date, author_id, img_src, name AS author_name 
+            `SELECT bio, birthdate, animes.id, title, jap_title, description, genre, release_date, author_id, img_src, name AS author_name 
             FROM animes 
             JOIN authors 
             ON authors.id = animes.author_id WHERE animes.id = ?`,

@@ -9,7 +9,7 @@ const userBan = async (req, res) => {
         
         res.status(404).json({ msg: "Error" });
     }
-}
+};
 
 const commentPublish = async (req, res) => {
     const {id} = req.params
@@ -21,7 +21,7 @@ const commentPublish = async (req, res) => {
         res.status(404).json({ msg: "Error" });
     }
     
-}
+};
 
 const commentDelete = async (req, res) => {
     const {id} = req.params
@@ -33,14 +33,11 @@ const commentDelete = async (req, res) => {
         res.status(404).json({ msg: "Error" });
     }
     
-}
+};
 
 const getAllReport = async (req, res) => {
     const response = await Admin.getAllReport() 
-
     res.json(response);
-    
-
-}
+};
 
 export {userBan, commentPublish, commentDelete, getAllReport};

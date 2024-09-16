@@ -3,7 +3,6 @@ import bcrypt from "bcrypt";
 
 class Auth {
     
-
     static async getUser(username, password) {
         const query = "SELECT * FROM users WHERE username = ? AND password = ?";
         const user = await Query.runWithParams(query, { username, password });
@@ -64,5 +63,5 @@ class Auth {
 
         return user;
     }
-}
+};
 export default Auth;

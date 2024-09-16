@@ -7,8 +7,7 @@ class Admin {
     const response = await Query.runWithParams(`
         UPDATE users SET statut = 0 
         WHERE id = ?`,[id]
-
-    )
+    );
     return response;
   }
 
@@ -18,7 +17,7 @@ class Admin {
         UPDATE comments SET is_report = 0
         WHERE id = ?`,[id]
 
-    )
+    );
     return response;
   }
 
@@ -28,7 +27,7 @@ class Admin {
         DELETE FROM comments 
         WHERE id = ?`,[id]
 
-    )
+    );
     return response;
   }
 
@@ -43,13 +42,13 @@ class Admin {
         JOIN animes ON animes.id = comments.animes_id
         WHERE is_report = 1`
 
-    )
+    );
     return response;
   }
   catch (err){
     console.log(err);
   }
-};
 }
+};
 
 export default Admin;

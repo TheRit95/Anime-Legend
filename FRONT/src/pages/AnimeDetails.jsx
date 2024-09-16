@@ -30,6 +30,7 @@ export default function AnimeDetails() {
 
       <div className="div_details">
         <h2>{anime.title}</h2>
+        <h3>{anime.jap_title}</h3>
         <p>
           Genre:&nbsp;
           <b>

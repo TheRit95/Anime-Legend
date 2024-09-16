@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../hooks/UserContextProvider";
 import { toast } from "react-hot-toast";
+import homeImage from "../public/admin.webp";
 import "../assets/styles/admin.scss";
 
 export default function Admin() {
@@ -106,9 +107,8 @@ export default function Admin() {
       <h1>Panneau d&apos;administration</h1>
 
       <img
-        src="http://mangapournous.m.a.pic.centerblog.net/chaos-head.gif"
-        border="0"
-        alt="Image animé d'une personne qui ecrit au clavier"
+        src={homeImage}
+        alt="Image animée d'une personne qui écrit au clavier"
       />
 
       {/* Gestion des Commentaires */}

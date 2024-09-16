@@ -184,4 +184,4 @@ export default function Comment({ animeId }) {
       </ul>
     </div>
   );
-}
+};

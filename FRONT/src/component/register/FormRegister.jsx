@@ -84,4 +84,4 @@ export default function FormRegister() {
       <p>{erreurMessage}</p>
     </>
   );
-}
+};

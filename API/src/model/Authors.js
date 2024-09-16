@@ -50,6 +50,6 @@ class Authors {
         const result = await Query.runWithParams(query, [id]);
         return result.affectedRows;
     }
-}
+};
 
 export default Authors;

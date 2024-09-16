@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { getAllAuthors, getAuthorById, addAuthor, updateAuthor, removeAuthor } from '../controllers/authors.js';
 import adminRequired from "../middlewares/adminRequired.js";
+import { getAllAuthors, getAuthorById, addAuthor, updateAuthor, removeAuthor } from '../controllers/authors.js';
+
 
 const router = Router();
 

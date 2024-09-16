@@ -20,6 +20,6 @@ class Query {
             throw new Error("Erreur lors de l'exécution de la requête avec paramètres");
         }
     }
-}
+};
 
 export default Query;

@@ -34,11 +34,11 @@ export default function Anime() {
       {animes.map((anime) => (
         <Link to={`/anime/${anime.id}`} key={anime.id} className="card">
           {/* Affichage du titre de l'anime */}
-          <p>{anime.title}</p>
+          <h2>{anime.title}</h2>
           {/* Affichage de l'image de l'anime */}
           <img
             src={`${import.meta.env.VITE_URL_BACKEND}/img/${anime.img_src}`}
-            alt="Fiche d'anime populaires tel que Drangon ball z, One Piece, Naruto, Hunter x Hunter, Berserk, GTO, Bleach, attaques des titans, Demon Slayers, Saint Seya"
+            alt="Fiche d'animes populaires tel que Drangon ball z, One Piece, Naruto, Hunter x Hunter, Berserk, GTO, Bleach, attaques des titans, Demon Slayers, Saint Seya"
           />
           {/* Affichage du genre, de la date de sortie et de l'auteur */}
           <p>{anime.genre}</p>

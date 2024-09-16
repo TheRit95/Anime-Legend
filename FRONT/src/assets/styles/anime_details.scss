@@ -3,9 +3,8 @@
     flex-direction: column; 
     gap: 40px; 
     
-
     img {
-        
+        margin: 0 auto;
         max-width: 400px; 
         object-fit: cover; 
     }
@@ -18,25 +17,23 @@
 }
 
 
-
 //Styles pour les écrans de largeur minimale de 800px
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1200px) {
     .main_animes_details {
         flex-direction: row; 
-    }
-}
-
-// Styles pour les écrans de largeur minimale de 600px
-@media screen and (min-width: 600px) {
-    .main_animes_details {
-        flex-direction: row; 
-    }
 
     img {
-        max-width: 300px; 
-    }
-
+            max-width: 400px; 
+        }
+    
     .div_details {
-        padding-right: 20px; 
+            padding-right: 20px; 
+        }
     }
 }
+
+
+    
+
+    
+
