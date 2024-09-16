@@ -1,84 +1,106 @@
 .comment-section {
-  margin-top: 2rem; // Espace au-dessus de la section de commentaires
-  padding: 1.5rem; // Espace intérieur autour du contenu
-  background-color: #f9f9f9; // Couleur de fond légère
-  border-radius: 8px; // Coins arrondis
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); // Ombre légère autour de la section
+  margin-top: 2rem; 
+  padding: 1.5rem; 
+  background-color: #f9f9f9; 
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
 
   h3 {
-    margin-bottom: 1rem; // Espace en dessous du titre
-    font-size: 1.5rem; // Taille de la police du titre
-    color: black; // Couleur du texte du titre
+    margin-bottom: 1rem; 
+    font-size: 1.5rem; 
+    color: black; 
   }
 
   ul {
-    list-style-type: none; // Supprime les puces de la liste
-    padding: 0; // Supprime le padding par défaut de la liste
-    margin: 1.5rem 0; // Espace vertical autour de la liste
-
+    margin: 1.5rem 0; 
+    padding: 0; 
+    list-style-type: none; 
+    
+    
     li {
-      padding: 1rem; // Espace intérieur autour du contenu des éléments de liste
-      margin-bottom: 1rem; // Espace en dessous de chaque élément de liste
-      background-color: #fff; // Couleur de fond blanche pour chaque élément
-      border-radius: 6px; // Coins arrondis des éléments de liste
-      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1); // Ombre légère autour des éléments de liste
-      transition: transform 0.2s ease-in-out; // Transition pour l'effet de survol
-      color: darkorange; // Couleur du texte des éléments de liste
-
-      &:hover {
-        transform: scale(1.02); // Agrandit légèrement l'élément au survol
+      margin-bottom: 1rem;
+      padding:5px 1rem 1rem 1rem;
+      color: darkorange;
+      background-color: wheat; 
+      border-radius: 6px; 
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1); 
+      transition: transform 0.2s ease-in-out; 
+       
+      .btn{
+        display: flex;
+        justify-content: space-between;
       }
 
+      button {
+        padding: 8px 15px; 
+        font-size: 14px;
+        border-radius: 6px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: darkorange;
+        background-color: black;
+        cursor: pointer; 
+
+        &:hover {
+          color: black;
+          background-color: darkorange; 
+        }
+        
+      }
+      
+      .noteStar{
+        font-size: 17px;
+      }
       p {
-        margin: 0.5rem 0; // Espace vertical autour du texte
-        font-size: 1rem; // Taille de la police du texte
-        color: black; // Couleur du texte
+        margin: 0.5rem 0; 
+        font-size: 20px; 
+        color: black; 
       }
 
       small {
-        display: block; // Affiche le texte en bloc
-        color: black; // Couleur du texte
-        font-size: 0.85rem; // Taille de la police du texte
+        margin-bottom: 15px;
+        display: block; 
+        font-size: 16px;
+        color: black; 
       }
     }
   }
 
   form {
-    display: flex; // Utilise Flexbox pour le formulaire
-    flex-direction: column; // Aligne les éléments du formulaire en colonne
-    gap: 1rem; // Espace entre les éléments du formulaire
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
 
     textarea {
-      padding: 0.75rem; // Espace intérieur autour du texte
-      font-size: 1rem; // Taille de la police du texte
-      border: 1px solid #ddd; // Bordure légère grise
-      border-radius: 6px; // Coins arrondis
-      outline: none; // Supprime le contour par défaut du textarea
-      transition: border-color 0.3s ease; // Transition pour le changement de couleur de bordure
+      padding: 0.75rem; 
+      border: 1px solid #ddd;
+      font-size: 1rem; 
+      border-radius: 6px; 
+      outline: none; 
+      transition: border-color 0.3s ease; 
 
       &:focus {
-        border-color: darkorange; // Change la couleur de la bordure au focus
+        border-color: darkorange; 
       }
     }
 
     p {
-      text-align: center; // Centre le texte du paragraphe
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; // Police de caractères utilisée
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+      text-align: center;
     }
 
     button {
-      padding: 0.75rem; // Espace intérieur du bouton
-      background-color: black; // Couleur de fond noire pour le bouton
-      color: white; // Couleur du texte en blanc
-      font-size: 1rem; // Taille de la police du texte
-      border: none; // Supprime la bordure du bouton
-      border-radius: 6px; // Coins arrondis du bouton
-      cursor: pointer; // Affiche un pointeur lorsque survolé
-      transition: background-color 0.3s ease; // Transition pour le changement de couleur de fond
+      padding: 0.75rem; 
+      font-size: 1rem;
+      border: none; 
+      color: darkorange; 
+      background-color: black; 
+      border-radius: 6px;
+      transition: background-color 0.3s ease; 
+      cursor: pointer;
 
       &:hover {
-        background-color: darkorange; // Change la couleur de fond au survol
-        color: black; // Change la couleur du texte au survol
+        color: black; 
+        background-color: darkorange; 
       }
     }
   }

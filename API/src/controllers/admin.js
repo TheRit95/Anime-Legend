@@ -1,6 +1,5 @@
 import Admin from "../model/Admin.js"
 
-
 const userBan = async (req, res) => {
     const {id} = req.params
     const response = await Admin.userBan(id)
@@ -10,8 +9,6 @@ const userBan = async (req, res) => {
         
         res.status(404).json({ msg: "Error" });
     }
-
-
 }
 
 const commentPublish = async (req, res) => {

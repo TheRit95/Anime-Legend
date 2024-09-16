@@ -79,9 +79,9 @@ export default function FormRegister() {
           value={formData.password}
         />
 
-        <input type="submit" value="S'inscrire" />
+        <input type="submit" value="S'inscrire" className="btn-submit" />
       </form>
-      <p>{erreurMessage}</p> {/* Affiche le message d'erreur, s'il y en a */}
+      <p>{erreurMessage}</p>
     </>
   );
 }

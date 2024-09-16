@@ -56,18 +56,6 @@ app.use(express.json());
 // Middleware pour servir des fichiers statiques depuis le dossier "public"
 app.use(express.static("public"));
 
-// Middleware de logging pour afficher les informations de session
-app.use((req, res, next) => {
-    console.log("MW", req.session); // Afficher les informations de session dans la console
-    if (req.session.isAdmin) {
-        console.log("hello admin"); // Afficher un message si l'utilisateur est admin
-    } else {
-        console.log("You are an user"); // Afficher un message si l'utilisateur est un utilisateur
-    }
-    next(); // Passer au prochain middleware
-});
-
-// Utilisation du routeur principal de l'application
 app.use(router);
 
 // Démarrage du serveur et écoute sur le port spécifié

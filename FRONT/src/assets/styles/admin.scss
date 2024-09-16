@@ -1,38 +1,63 @@
+.admin-panel {
+
+  h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color:darkorange;
+    background-color: black;
+  }
+
+img {
+  display: block;
+  margin: 0 auto;
+
+  }
+}
+
 .comment-management {
+
     h2 {
       margin-bottom: 1rem;
+      padding-left: 10px;
+      color:darkorange;
     }
   
     ul {
-      list-style-type: none;
       padding: 0;
+      list-style-type: none;
+      
   
       li {
-        background-color: #f9f9f9;
         padding: 1rem;
         margin-bottom: 1rem;
         border: 1px solid #ddd;
+        background-color: #f9f9f9;
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   
         p {
           margin: 0.5rem 0;
         }
+
+        strong {
+          color: darkorange;
+        }
   
         button {
-          background-color: #dc3545;
-          color: white;
+          margin: 10px;
           padding: 0.5rem 1rem;
           border: none;
-          cursor: pointer;
-          border-radius: 3px;
+          color: darkorange;
+          background-color: black;
+          border-radius: 5px;
           transition: background-color 0.3s;
-  
+          cursor: pointer;
+          
           &:hover {
-            background-color: #c82333;
+            color: black; 
+            background-color: darkorange;
           }
         }
       }
     }
-  }
-  
+}

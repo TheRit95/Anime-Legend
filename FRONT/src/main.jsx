@@ -1,13 +1,9 @@
 // Importation de StrictMode depuis React pour activer des vérifications supplémentaires en mode développement
 import { StrictMode } from "react";
-
 // Importation de createRoot depuis React pour rendre l'application dans le DOM
 import { createRoot } from "react-dom/client";
-
 import { BrowserRouter } from "react-router-dom";
-
 import App from "./App.jsx";
-
 import "./assets/styles/index.scss";
 
 // Importation du provider UserContextProvider pour la gestion du contexte utilisateur dans l'application

@@ -9,7 +9,6 @@ class Auth {
         const user = await Query.runWithParams(query, { username, password });
         return user;
     }
-// Méthode pour enregistrer un nouvel utilisateur
 
     static async register(data) {
         const query1 = `
@@ -42,8 +41,6 @@ class Auth {
         }
         throw new Error("Erreur lors de l'enregistrement de l'utilisateur");
     }
-
-    // Méthode pour se connecter
 
     static async login(data) {
         const query = `

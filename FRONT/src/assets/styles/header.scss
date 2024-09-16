@@ -1,67 +1,69 @@
 header {
-    display: flex; // Utilise Flexbox pour la mise en page du header
-    align-items: center; // Centre verticalement les éléments dans le header
-    justify-content: space-between; // Espace entre les éléments du header
-    background-color: black; // Couleur de fond noire pour le header
-    padding: 0 20px; // Espace intérieur horizontal de 20px
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: black;
   
-    .BurgerIcon {
-      display: block; // Affiche l'icône du burger
-      color: darkorange; // Couleur de l'icône en orange foncé
-    }
-  
-    nav a {
-      color: darkorange; // Couleur des liens de navigation en orange foncé
-      text-decoration: none; // Supprime la décoration des liens (soulignement)
-      font-size: 20px; // Taille de la police des liens
-      transition: color 0.3s ease, background-color 0.3s ease; // Transition pour les changements de couleur
-      padding: 10px; // Espace intérieur autour des liens
-  
-      &:hover {
-        color: black; // Couleur du texte des liens au survol en noir
-        background-color: darkorange; // Couleur de fond des liens au survol en orange foncé
-        border-radius: 5px; // Arrondit les coins des liens au survol
-      }
-    }
-  
-    h1 {
-      color: darkorange; // Couleur du titre en orange foncé
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; // Police de caractères
-      font-style: italic; // Style de police en italique
-      font-weight: 700; // Poids de la police en gras
-    }
+
+  .BurgerIcon {
+    display: block;
+    color: darkorange;
+  }
+
+  nav a {
+    padding: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: darkorange;
+    transition: color 0.3s ease, background-color 0.3s ease;
     
+
+    &:hover {
+      color: black;
+      background-color: darkorange;
+      border-radius: 5px;
+    }
+  }
+
+  h1 {
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: darkorange;
+  }
+
+  nav {
+    display: none;
+    justify-content: center;
+    padding: 30px;
+    gap: 30px;
+    
+  }
+}
+
+.BurgerMenu {
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  right: 0px;
+  background-color: black;
+  z-index: 500;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  header {
+    .BurgerIcon {
+      display: none;
+    }
     nav {
-      display: none; // Masque la navigation par défaut
-      justify-content: center; // Centre horizontalement les éléments de navigation
-      gap: 30px; // Espace entre les éléments de navigation
-      padding: 30px; // Espace intérieur autour de la navigation
+      display: flex;
     }
   }
-  
-  .BurgerMenu {
-    position: fixed; // Position fixe pour le menu burger
-    top: 60px; // Positionne le menu burger à 60px du haut
-    left: 0px; // Aligne le menu burger à gauche
-    right: 0px; // Aligne le menu burger à droite
-    background-color: black; // Couleur de fond noire pour le menu burger
-    z-index: 500; // Définit la priorité d'affichage pour le menu burger
-  
-    nav {
-      display: flex; // Affiche la navigation sous forme de Flexbox
-      flex-direction: column; // Aligne les éléments de navigation en colonne
-      align-items: center; // Centre les éléments de navigation horizontalement
-    }
-  }
-  
-  @media screen and (min-width: 600px) {
-    header {
-      .BurgerIcon {
-        display: none; // Masque l'icône du burger sur les écrans plus larges
-      }
-      nav {
-        display: flex; // Affiche la navigation sous forme de Flexbox sur les écrans plus larges
-      }
-    }
-  }
-  
+}

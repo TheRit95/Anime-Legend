@@ -29,7 +29,6 @@ export default function BurgerMenu({ setIsOpenBurger }) {
   return (
     <div className="BurgerMenu">
       <nav>
-        {/* Liens de navigation */}
         <Link to="/" onClick={() => setIsOpenBurger(false)}>
           Accueil
         </Link>
@@ -37,7 +36,6 @@ export default function BurgerMenu({ setIsOpenBurger }) {
           Anime
         </Link>
 
-        {/* Affiche les liens de connexion/inscription si l'utilisateur n'est pas connecté */}
         {!user?.email ? (
           <>
             <Link to="/login" onClick={() => setIsOpenBurger(false)}>
@@ -48,7 +46,6 @@ export default function BurgerMenu({ setIsOpenBurger }) {
             </Link>
           </>
         ) : (
-          // Affiche le lien de déconnexion si l'utilisateur est connecté
           <Link to="" onClick={handleLogout}>
             Déconnexion
           </Link>

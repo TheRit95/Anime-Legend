@@ -1,25 +1,25 @@
 .star-rating {
-  display: flex; 
-  align-items: center; // Aligne les étoiles au centre verticalement
-  justify-content: center; // Centre les étoiles horizontalement
-  max-height: 70px; // Définit une hauteur maximale pour la section de notation
-  gap: 0.5rem; // Espace entre les étoiles
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 70px;
+  gap: 0.5rem;
 
   .star {
-    background: none; // Aucun fond pour les étoiles
-    border: none; // Aucun bord pour les étoiles
-    cursor: pointer; // Change le curseur en pointeur pour indiquer que c'est cliquable
-    padding: 0; // Supprime le padding par défaut
-    font-size: 2rem; // Définit la taille des étoiles
-    color: #ddd; // Couleur par défaut des étoiles (non sélectionnées)
-    transition: color 0.2s; // Transition de couleur lors du survol
+    background: none;
+    padding: 0;
+    border: none;
+    font-size: 35px;
+    color: #ddd;
+    transition: color 0.2s;
+    cursor: pointer;
 
     &:hover {
-      color: darkorange; // Couleur des étoiles lors du survol
+      color: darkorange;
     }
   }
 
   .star-filled {
-    color: darkorange; // Couleur des étoiles remplies (sélectionnées)
+    color: darkorange;
   }
 }

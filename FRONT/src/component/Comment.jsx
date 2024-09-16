@@ -9,9 +9,6 @@ export default function Comment({ animeId }) {
   const [commentText, setCommentText] = useState(""); // État pour stocker le texte du commentaire
   const [rating, setRating] = useState(1); // État pour stocker la note (par défaut 1)
 
-  // Console log pour le débogage
-  console.log(user);
-
   // Récupère les commentaires au chargement du composant ou lorsque animeId change
   useEffect(() => {
     fetch(`${import.meta.env.VITE_URL_BACKEND}/api/v1/comments/${animeId}`, {
@@ -27,7 +24,7 @@ export default function Comment({ animeId }) {
         return response.json();
       })
       .then((data) => setComments(data)) // Met à jour l'état avec les commentaires récupérés
-      .catch((err) => console.log(err)); // Affiche les erreurs éventuelles
+      .catch((erreur) => toast.error(erreur.message));
   }, [animeId]);
 
   // Fonction appelée lors de la soumission du formulaire
@@ -69,9 +66,27 @@ export default function Comment({ animeId }) {
         ]);
         setCommentText(""); // Réinitialise le champ de texte du commentaire
         setRating(1); // Réinitialise la note
-        toast.success("Votre commentaire a bien été ajouté"); // Affiche un message de succès
+        toast.success("Votre commentaire a bien été ajouté");
       })
-      .catch(() => toast.error("Erreur lors de l'ajout du commentaire")); // Affiche un message d'erreur
+      .catch(() => toast.error("Erreur lors de l'ajout du commentaire"));
+  };
+
+  const handleRemove = (commentId) => {
+    fetch(`${import.meta.env.VITE_URL_BACKEND}/api/v1/comments/${commentId}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+      },
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) throw "Erreur lors de la suppression du commentaire";
+        setComments((prevComments) =>
+          prevComments.filter((comment) => comment.id !== comment.id)
+        );
+        toast.success("Commentaire supprimé");
+      })
+      .catch(() => toast.error("Erreur lors de la suppression du commentaire"));
   };
 
   const handleReport = (commentId) => {
@@ -86,15 +101,11 @@ export default function Comment({ animeId }) {
         if (!response.ok) throw new Error("Erreur serveur");
         return response.json();
       })
-      .then((data) => {
-        // Gestion de la réponse réussie
-        console.log("Commentaire signalé avec succès", data);
+      .then(() => {
         toast.success("Le commentaire a été signalé.");
         setComments((value) => value.filter((item) => item.id !== commentId));
       })
-
-      .catch((error) => {
-        console.error("Erreur lors du signalement du commentaire :", error);
+      .catch(() => {
         toast.error(
           "Une erreur s'est produite lors du signalement. Veuillez réessayer plus tard."
         );
@@ -113,7 +124,6 @@ export default function Comment({ animeId }) {
         />
 
         <div className="star-rating">
-          {/* Affiche les étoiles pour la note */}
           <p className="star star-filled" onClick={() => setRating(1)}>
             ★
           </p>
@@ -144,23 +154,31 @@ export default function Comment({ animeId }) {
         </div>
 
         {user?.email ? (
-          <button type="submit">Envoyer</button> // Affiche le bouton d'envoi si l'utilisateur est connecté
+          <button type="submit">Envoyer</button>
         ) : (
-          <p>Veuillez vous connecter</p> // Message demandant à l'utilisateur de se connecter s'il ne l'est pas
+          <p>Veuillez vous connecter</p>
         )}
       </form>
 
       <ul>
         {comments?.map((comment) => (
           <li key={comment.id}>
-            <small>Posté par: {comment.username}</small>
-            <div>
+            <p className="noteStar">
               {/* Affiche les étoiles pour la note du commentaire */}
               Note: {new Array(comment.note).fill("★").join("")}
               {new Array(5 - comment.note).fill("☆").join("")}
-            </div>
+            </p>
             <p>{comment.comment}</p>
-            <button onClick={() => handleReport(comment.id)}>Signaler</button>
+            <small>Posté par: {comment.username}</small>
+            <div className="btn">
+              <button onClick={() => handleReport(comment.id)}>Signaler</button>
+
+              {comment.username === user.username && (
+                <button onClick={() => handleRemove(comment.id)}>
+                  Supprimer votre commentaire
+                </button>
+              )}
+            </div>
           </li>
         ))}
       </ul>

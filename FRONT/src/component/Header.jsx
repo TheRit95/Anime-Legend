@@ -1,8 +1,8 @@
-import { useContext, useState } from "react"; // Importation des hooks React
-import { Link } from "react-router-dom"; // Importation du composant Link pour la navigation
-import { UserContext } from "../hooks/UserContextProvider"; // Importation du contexte utilisateur
-import BurgerIcon from "./BurgerIcon"; // Importation du composant BurgerIcon
-import BurgerMenu from "./BurgerMenu"; // Importation du composant BurgerMenu
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../hooks/UserContextProvider";
+import BurgerIcon from "./BurgerIcon";
+import BurgerMenu from "./BurgerMenu";
 
 export default function Header() {
   const user = useContext(UserContext); // Récupération des informations utilisateur depuis le contexte

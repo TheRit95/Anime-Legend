@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react"; // Importation des hooks et des fonctionnalités React
+import { createContext, useEffect, useState } from "react";
 
 // Création du contexte utilisateur avec des valeurs par défaut
 export const UserContext = createContext({
@@ -11,7 +11,7 @@ export const UserContext = createContext({
 
 // eslint-disable-next-line react/prop-types
 export default function UserContextProvider({ children }) {
-  const [user, setUser] = useState({}); // État pour stocker les informations de l'utilisateur
+  const [user, setUser] = useState({});
 
   // Effet pour récupérer les informations de l'utilisateur lors du chargement du composant
   useEffect(() => {

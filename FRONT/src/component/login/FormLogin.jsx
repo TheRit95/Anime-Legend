@@ -66,7 +66,7 @@ export default function FormLogin() {
           value={formData.password}
         />
 
-        <input type="submit" value="Se connecter" />
+        <input type="submit" value="Se connecter" className="btn-submit" />
       </form>
     </>
   );

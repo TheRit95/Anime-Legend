@@ -1,20 +1,12 @@
-// Importation des hooks useEffect et useState de React
 import { useEffect, useState } from "react";
-
-// Importation des styles pour les animes
 import "../../src/assets/styles/anime.scss";
-
-// Importation de Link depuis react-router-dom pour la navigation entre les pages
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
-// Déclaration du composant Anime
 export default function Anime() {
-  // Déclaration de l'état animes pour stocker la liste des animes
   const [animes, setAnimes] = useState([]);
 
-  // useEffect pour exécuter la récupération des animes après le rendu initial
   useEffect(() => {
-    // Récupération des données d'animes depuis l'API
     fetch(`${import.meta.env.VITE_URL_BACKEND}/api/v1/animes`, {
       method: "GET",
       headers: {
@@ -23,23 +15,18 @@ export default function Anime() {
       credentials: "include",
     })
       .then((response) => {
-        // Gestion des erreurs si la réponse n'est pas correcte
         if (!response.ok) throw "error";
         return response.json();
       })
-      // Mise à jour de l'état animes avec les données récupérées
+
       .then((data) => setAnimes(data))
-      // Gestion des erreurs lors de la récupération
-      .catch((err) => console.log(err));
-  }, []); // Le tableau vide [] signifie que le useEffect s'exécute uniquement lors du montage du composant
+      .catch((err) => toast.error(err.message));
+  }, []);
 
   // Fonction pour faire défiler la page vers le haut
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  // Affichage de la liste des animes dans la console pour débogage
-  console.log(animes);
 
   return (
     <main className="main_animes">
@@ -60,7 +47,6 @@ export default function Anime() {
         </Link>
       ))}
 
-      {/* Bouton pour faire défiler la page vers le haut */}
       <button className="scroll-top" onClick={scrollToTop}>
         ↑
       </button>

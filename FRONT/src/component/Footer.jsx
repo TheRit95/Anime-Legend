@@ -1,5 +1,5 @@
-import FooterIcon from "./FooterIcon"; // Importation du composant FooterIcon
-import "../assets/styles/footer.scss"; // Importation des styles pour le footer
+import FooterIcon from "./FooterIcon";
+import "../assets/styles/footer.scss";
 
 export default function Footer() {
   return (
