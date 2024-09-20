@@ -1,8 +1,11 @@
 import { Router } from "express";
 import userRequired from "../middlewares/userRequired.js";
-import { addComment, getCommentById, reportComment, removeComment } from '../controllers/comments.js';
-
-
+import {
+  addComment,
+  getCommentById,
+  reportComment,
+  removeComment,
+} from "../controllers/comments.js";
 
 const router = Router();
 

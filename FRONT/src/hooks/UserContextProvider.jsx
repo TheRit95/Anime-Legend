@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
-// Création du contexte utilisateur avec des valeurs par défaut
 export const UserContext = createContext({
   username: "",
   email: "",
@@ -13,7 +13,6 @@ export const UserContext = createContext({
 export default function UserContextProvider({ children }) {
   const [user, setUser] = useState({});
 
-  // Effet pour récupérer les informations de l'utilisateur lors du chargement du composant
   useEffect(() => {
     fetch(`${import.meta.env.VITE_URL_BACKEND}/api/v1/auth`, {
       method: "GET",
@@ -23,17 +22,18 @@ export default function UserContextProvider({ children }) {
       credentials: "include",
     })
       .then((response) => {
-        if (!response.ok) throw "error"; // Gestion des erreurs si la réponse n'est pas OK
+        if (!response.ok) throw "error";
         return response.json();
       })
-      .then((data) => setUser(data.user)); // Mise à jour de l'état avec les données utilisateur
-  }, []); // Dépendances vides pour que l'effet s'exécute une seule fois au chargement
+      .then((data) => setUser(data.user))
+      .catch((err) => toast.err(err));
+  }, []);
 
   return (
     <UserContext.Provider
       value={{
-        ...user, // Étend l'objet utilisateur avec les propriétés actuelles
-        setUser, // Fournit la fonction pour mettre à jour l'utilisateur
+        ...user,
+        setUser,
       }}
     >
       {children} {/* Rend les enfants du contexte accessibles */}

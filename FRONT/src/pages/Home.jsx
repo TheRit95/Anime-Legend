@@ -1,5 +1,4 @@
-import homeImage from "../public/homeImage.webp";
-import "../assets/styles/home.scss";
+import homeImage from "/img/homeImage.webp";
 
 function Home() {
   return (
@@ -19,7 +18,11 @@ function Home() {
       <p>Votre aventure commence ici !</p>
 
       <div className="home-image">
-        <img src={homeImage} alt="Image avec des personnages de mangas" />
+        <img
+          src={homeImage}
+          alt="Image avec des personnages de mangas"
+          loading="lazy"
+        />
       </div>
     </main>
   );

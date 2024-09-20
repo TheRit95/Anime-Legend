@@ -5,10 +5,9 @@ import BurgerIcon from "./BurgerIcon";
 import BurgerMenu from "./BurgerMenu";
 
 export default function Header() {
-  const user = useContext(UserContext); // Récupération des informations utilisateur depuis le contexte
-  const [isOpenBurger, setIsOpenBurger] = useState(false); // État pour gérer l'ouverture/fermeture du menu burger
+  const user = useContext(UserContext);
+  const [isOpenBurger, setIsOpenBurger] = useState(false);
 
-  // Fonction pour gérer la déconnexion de l'utilisateur
   const handleLogout = (event) => {
     event.preventDefault();
 
@@ -20,13 +19,12 @@ export default function Header() {
       credentials: "include",
     })
       .then((response) => {
-        if (!response.ok) throw "error"; // Gestion des erreurs
+        if (!response.ok) throw "error";
         return response.json();
       })
-      .then(() => user.setUser({})); // Réinitialisation de l'état utilisateur après déconnexion
+      .then(() => user.setUser({}));
   };
 
-  // Fonction pour gérer l'ouverture/fermeture du menu burger
   const handleBurger = () => {
     setIsOpenBurger((value) => !value);
   };

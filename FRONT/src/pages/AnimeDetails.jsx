@@ -26,7 +26,15 @@ export default function AnimeDetails() {
 
   return (
     <main className="main_animes_details">
-      <img src={`${import.meta.env.VITE_URL_BACKEND}/img/${anime.img_src}`} />
+      <div className="container_img_detail">
+        <img
+          src={`/img/${anime.img_src}`}
+          alt={
+            anime.title ? `Image de l'anime ${anime.title}` : "Image d'anime"
+          }
+          loading="lazy"
+        />
+      </div>
 
       <div className="div_details">
         <h2>{anime.title}</h2>

@@ -1,39 +1,46 @@
+@import "variable";
+
 .main_animes_details {
-    display: flex; 
-    flex-direction: column; 
-    gap: 40px; 
-    
-    img {
-        margin: 0 auto;
-        max-width: 400px; 
-        object-fit: cover; 
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 
-    .div_details {
-        padding-right: 10px; 
-        line-height: 30px; 
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-    }
+  .container_img_detail {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    height: 100%;
+  }
+  img {
+    max-width: 400px;
+    height: 100%;
+  }
+
+  .div_details {
+    padding-right: 10px;
+    line-height: 25px;
+    font-family: $font-family;
+  }
 }
 
+@media screen and (min-width: 450px) {
+  .main_animes_details {
+    img {
+      margin: 0 auto;
+    }
+  }
+}
 
-//Styles pour les écrans de largeur minimale de 800px
 @media screen and (min-width: 1200px) {
-    .main_animes_details {
-        flex-direction: row; 
+  .main_animes_details {
+    flex-direction: row;
 
     img {
-            max-width: 400px; 
-        }
-    
-    .div_details {
-            padding-right: 20px; 
-        }
+      max-width: 400px;
     }
+
+    .div_details {
+      padding-right: 20px;
+    }
+  }
 }
-
-
-    
-
-    
-

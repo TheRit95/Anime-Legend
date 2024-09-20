@@ -4,12 +4,11 @@ import toast from "react-hot-toast";
 
 // eslint-disable-next-line react/prop-types
 export default function Comment({ animeId }) {
-  const user = useContext(UserContext); // Contexte utilisateur pour vérifier l'authentification
-  const [comments, setComments] = useState([]); // État pour stocker les commentaires
-  const [commentText, setCommentText] = useState(""); // État pour stocker le texte du commentaire
-  const [rating, setRating] = useState(1); // État pour stocker la note (par défaut 1)
+  const user = useContext(UserContext);
+  const [comments, setComments] = useState([]);
+  const [commentText, setCommentText] = useState("");
+  const [rating, setRating] = useState(1);
 
-  // Récupère les commentaires au chargement du composant ou lorsque animeId change
   useEffect(() => {
     fetch(`${import.meta.env.VITE_URL_BACKEND}/api/v1/comments/${animeId}`, {
       method: "GET",
@@ -23,13 +22,12 @@ export default function Comment({ animeId }) {
           throw new Error("Erreur de récupération des commentaires");
         return response.json();
       })
-      .then((data) => setComments(data)) // Met à jour l'état avec les commentaires récupérés
+      .then((data) => setComments(data))
       .catch((erreur) => toast.error(erreur.message));
   }, [animeId]);
 
-  // Fonction appelée lors de la soumission du formulaire
   const handleCommentSubmit = (e) => {
-    e.preventDefault(); // Empêche le comportement par défaut du formulaire
+    e.preventDefault();
 
     fetch(
       `${
@@ -43,7 +41,7 @@ export default function Comment({ animeId }) {
         credentials: "include",
         body: JSON.stringify({
           comment: commentText,
-          rating: rating, // Envoie la note avec le commentaire
+          rating: rating,
         }),
       }
     )
@@ -53,19 +51,18 @@ export default function Comment({ animeId }) {
         return response.json();
       })
       .then(() => {
-        // Met à jour la liste des commentaires après l'ajout
         setComments([
           ...comments,
           {
             comment: commentText,
             note: rating,
-            id: Date.now(), // Utilisation de la date pour générer un ID unique
+            id: Date.now(),
             username: user.username,
             statut: 1,
           },
         ]);
-        setCommentText(""); // Réinitialise le champ de texte du commentaire
-        setRating(1); // Réinitialise la note
+        setCommentText("");
+        setRating(1);
         toast.success("Votre commentaire a bien été ajouté");
       })
       .catch(() => toast.error("Erreur lors de l'ajout du commentaire"));
@@ -175,7 +172,7 @@ export default function Comment({ animeId }) {
 
               {comment.username === user.username && (
                 <button onClick={() => handleRemove(comment.id)}>
-                  Supprimer votre commentaire
+                  Supprimer
                 </button>
               )}
             </div>
@@ -184,4 +181,4 @@ export default function Comment({ animeId }) {
       </ul>
     </div>
   );
-};
+}

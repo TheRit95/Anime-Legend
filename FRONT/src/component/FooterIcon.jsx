@@ -5,6 +5,7 @@ const FooterIcon = () => {
         href="https://www.facebook.com"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Facebbok"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -21,6 +22,7 @@ const FooterIcon = () => {
         href="https://www.twitter.com"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Twitter"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -37,6 +39,7 @@ const FooterIcon = () => {
         href="https://www.instagram.com"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Instagram"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -53,6 +56,7 @@ const FooterIcon = () => {
         href="https://www.youtube.com"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="YouTube"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

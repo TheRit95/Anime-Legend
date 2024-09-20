@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import banImage from "./public/banImage.webp";
+import { useContext } from "react";
+import { UserContext } from "./hooks/UserContextProvider";
+import { Toaster } from "react-hot-toast";
+import banImage from "/img/banImage.webp";
 
 import Header from "./component/Header";
 import Register from "./pages/Register";
@@ -9,10 +12,6 @@ import Anime from "./pages/Anime";
 import AnimeDetails from "./pages/AnimeDetails";
 import Admin from "./pages/Admin";
 import Footer from "./component/Footer";
-
-import { Toaster } from "react-hot-toast";
-import { useContext } from "react";
-import { UserContext } from "./hooks/UserContextProvider";
 
 function App() {
   const user = useContext(UserContext);

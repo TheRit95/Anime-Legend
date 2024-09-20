@@ -1,25 +1,27 @@
+@import "variable";
+
 .star-rating {
   display: flex;
   align-items: center;
   justify-content: center;
   max-height: 70px;
-  gap: 0.5rem;
+  gap: 5px;
 
   .star {
     background: none;
     padding: 0;
     border: none;
     font-size: 35px;
-    color: #ddd;
+    color: $border-color;
     transition: color 0.2s;
     cursor: pointer;
 
     &:hover {
-      color: darkorange;
+      color: $primary-color;
     }
   }
 
   .star-filled {
-    color: darkorange;
+    color: $primary-color;
   }
 }

@@ -1,24 +1,30 @@
+@import "variable";
+@import "admin";
 @import "header";
-@import "form";
+@import "home";
 @import "anime";
 @import "anime_details";
+@import "form";
 @import "comment";
 @import "star_rating";
+@import "footer";
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 h1 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: $font-family;
   font-style: italic;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   text-align: center;
-  color: darkorange;
+  color: $primary-color;
 }
-.Gorille{
+.Gorille {
   display: block;
   margin: 0 auto;
 }

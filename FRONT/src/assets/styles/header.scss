@@ -1,44 +1,42 @@
+@import "variable";
+
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  background-color: black;
-  
+  background-color: $secondary-color;
 
   .BurgerIcon {
     display: block;
-    color: darkorange;
+    color: $primary-color;
   }
 
   nav a {
     padding: 10px;
-    font-size: 20px;
+    font-size: $font-size-medium;
     text-decoration: none;
-    color: darkorange;
+    color: $primary-color;
     transition: color 0.3s ease, background-color 0.3s ease;
-    
 
     &:hover {
-      color: black;
-      background-color: darkorange;
+      color: $secondary-color;
+      background-color: $primary-color;
       border-radius: 5px;
     }
   }
 
   h1 {
-    font-weight: 700;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: $font-weight-bold;
+    font-family: $font-family;
     font-style: italic;
-    color: darkorange;
+    color: $primary-color;
   }
 
   nav {
     display: none;
     justify-content: center;
-    padding: 30px;
     gap: 30px;
-    
   }
 }
 
@@ -47,7 +45,7 @@ header {
   top: 60px;
   left: 0px;
   right: 0px;
-  background-color: black;
+  background-color: $secondary-color;
   z-index: 500;
 
   nav {
@@ -57,7 +55,7 @@ header {
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
   header {
     .BurgerIcon {
       display: none;
