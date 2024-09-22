@@ -37,20 +37,10 @@ const add = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  const { id } = req.params;
-  const { title, description, genre, release_date, author_id } = req.body;
-
   try {
-    const response = await Anime.update([
-      title,
-      description,
-      genre,
-      release_date,
-      author_id,
-      id,
-    ]);
+    const response = await Anime.update(req.body, req.params.id);
 
-    if (response.affectedRows > 0) {
+    if (response[0].affectedRows > 0 && response[1].affectedRows > 0) {
       res.json({ msg: `Anime bien mis à jour` });
     } else {
       res.status(404).json({ msg: "Anime non trouvé" });

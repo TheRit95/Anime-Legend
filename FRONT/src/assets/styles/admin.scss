@@ -16,6 +16,18 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
+  nav {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+    margin: 20px 0;
+  }
+  button {
+    &:hover {
+      color: $secondary-color;
+      background-color: $primary-color;
+    }
+  }
 }
 
 .comment-management {
@@ -23,6 +35,8 @@
     margin-bottom: 16px;
     padding-left: 10px;
     color: $primary-color;
+    font-size: $font-weight-bold;
+    font-family: $font-family;
   }
 
   ul {

@@ -1,0 +1,89 @@
+@import "variable";
+
+h2 {
+  font-family: $font-family;
+  font-size: $font-weight-bold;
+  color: $primary-color;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-radius: 10px;
+  margin: 20px 0;
+  font-size: $font-size-medium;
+
+  tbody {
+    background-color: $light-color;
+  }
+
+  p {
+    font-family: $font-family;
+  }
+  th {
+    font-family: $font-family;
+    padding: 12px 15px;
+    text-align: center;
+  }
+  td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border: solid black;
+    border-radius: 5px;
+
+    vertical-align: top;
+    button {
+      margin: 10px;
+    }
+
+    // img {
+    //   max-width: 100px;
+    //   height: auto;
+    //   display: block;
+    //   margin: 5px 0;
+    // }
+  }
+}
+
+// Form styles for editing
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+// Button styles
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 10px;
+  background-color: $secondary-color;
+  color: $primary-color;
+  transition: background-color 0.3s ease;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  input[type="text"],
+  input[type="date"] {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
